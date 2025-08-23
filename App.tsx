@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
 import { Badge } from './components/ui/badge';
 import { Alert, AlertDescription } from './components/ui/alert';
@@ -80,7 +80,7 @@ function AppContent() {
 function AppHeader() {
   const { state } = useSupabaseApp();
 
-  const getTicketDisplay = () => {
+  const ticketInfo = useMemo(() => {
     if (!state.isLoggedIn) {
       return { display: '3枚', isPremium: false }; // Default for non-logged-in users
     }
@@ -93,9 +93,7 @@ function AppHeader() {
       display: `${state.tickets?.tickets || 0}枚`, 
       isPremium: false 
     };
-  };
-
-  const ticketInfo = getTicketDisplay();
+  }, [state.isLoggedIn, state.user?.is_premium, state.tickets?.tickets]);
 
   return (
     <div className="bg-white shadow-sm border-b px-4 py-3">
