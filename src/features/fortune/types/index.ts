@@ -32,8 +32,9 @@ export interface FortuneSession {
 export interface TarotCard {
   id: string;
   name: string;
-  description?: string;
-  keywords?: string[];
+  description: string;
+  upright_keywords: string[];
+  reversed_keywords: string[];
 }
 
 export interface SpreadPosition {
@@ -82,24 +83,37 @@ export interface PlanetData {
   house: number;
   isRetrograde: boolean;
   name: string;
+  signName: string;
+  signSymbol: string;
+  symbol: string;
+  degreeInSign: number;
 }
 
 export interface HouseData {
   degree: number;
   sign: string;
+  signName: string;
+  signSymbol: string;
   number: number;
+  degreeInSign: number;
 }
 
 export interface AngleData {
   degree: number;
   sign: string;
+  signName: string;
+  signSymbol: string;
   name: string;
+  symbol: string;
+  degreeInSign: number;
 }
 
 export interface AspectData {
   planet1: string;
   planet2: string;
   aspect: string;
+  aspectName: string;
+  nature: string;
   orb: number;
   orbString: string;
 }
