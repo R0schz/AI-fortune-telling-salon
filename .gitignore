@@ -106,6 +106,9 @@ logs
 *.tmp
 *.temp
 
+# TypeScript build info
+tsconfig.tsbuildinfo
+
 # Supabase
 .supabase/
 
